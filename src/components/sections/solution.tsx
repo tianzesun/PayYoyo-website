@@ -1,17 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { SavingsCalculator } from '@/components/ui/savings-calculator';
 import React from 'react';
-
-// TypeScript interfaces for better type safety
-interface Step {
-  step: string;
-  title: string;
-  description: string;
-  icon: string;
-}
 
 interface Feature {
   title: string;
@@ -72,38 +64,6 @@ const ANIMATION_CONFIG = {
 };
 
 // Icon component to eliminate repetitive SVG code
-interface IconProps {
-  name: string;
-  className?: string;
-}
-
-const Icon: React.FC<IconProps> = ({ name, className = "w-8 h-8" }) => {
-  const iconComponents: Record<string, React.ReactElement> = {
-    location: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    ai: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    payment: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-      </svg>
-    ),
-    checkmark: (
-      <svg className={`${className} mr-2`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-      </svg>
-    ),
-  };
-
-  return iconComponents[name] || null;
-};
-
 export function Solution() {
   // Schema.org structured data for SoftwareApplication and Organization
   const softwareSchema = {
@@ -302,9 +262,11 @@ export function Solution() {
                         </div>
                       </div>
                       <div className="bg-white p-2 rounded-lg border">
-                        <img
+                        <Image
                           src="/tim-hortons-qr.webp"
                           alt="Tim Hortons QR Code Example"
+                          width={28}
+                          height={36}
                           className="w-7 h-9 object-contain"
                         />
                       </div>

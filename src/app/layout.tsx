@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { CookieConsent } from '@/components/ui/cookie-consent'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'] })
+// Use system fonts as fallback when Google Fonts is not available
+const fontClassName = 'font-sans'
 
 // Enhanced SEO Metadata
 export const metadata: Metadata = {
@@ -150,7 +150,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${inter.className} text-gray-900 antialiased`}>
+      <body className={`${fontClassName} text-gray-900 antialiased`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 focus:outline-none focus:ring-2 focus:ring-blue-300"
