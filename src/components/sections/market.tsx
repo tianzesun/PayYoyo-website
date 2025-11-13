@@ -120,7 +120,7 @@ export function Market() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
         >
-          {marketStats.map((stat, index) => (
+          {marketStats.map((stat) => (
             <div key={stat.label} className="text-center bg-gray-50 rounded-xl p-8">
               <div className="text-4xl font-bold text-[#1E40AF] mb-2">{stat.value}</div>
               <div className="text-lg font-semibold text-gray-900 mb-1">{stat.label}</div>

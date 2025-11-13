@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function DealzyPage() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [cartTotal, setCartTotal] = useState(127.43);
+  const cartTotal = 127.43;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -223,9 +224,11 @@ export default function DealzyPage() {
             </div>
             <div>
               <h5 className="font-bold mb-4">Powered by</h5>
-              <img
+              <Image
                 src="/tim-hortons-qr.webp"
                 alt="PayYoYo"
+                width={120}
+                height={32}
                 className="h-8 mx-auto opacity-75"
               />
             </div>

@@ -1,10 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Modal } from '@/components/ui/modal';
-import { SignupForm } from '@/components/ui/signup-form';
 
 export function Contact() {
   return (
@@ -94,7 +91,7 @@ export function Contact() {
 
               try {
                 window.open(mailtoLink, '_self');
-              } catch (error) {
+              } catch {
                 window.location.href = mailtoLink;
               }
             }}>

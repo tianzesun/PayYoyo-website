@@ -18,13 +18,8 @@ interface Job {
   requirements: string[];
 }
 
-export default function JobDetailPage() {
-  const params = useParams();
-  const router = useRouter();
-  const [job, setJob] = useState<Job | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  const jobs: Job[] = [
+// Job listings data - moved outside component to avoid re-creation on every render
+const jobs: Job[] = [
     {
       id: 'ai-product-manager',
       title: 'AI Product Manager',
@@ -353,6 +348,12 @@ As an AI Research Scientist at PayYoyo, you will:
       ]
     }
   ];
+
+export default function JobDetailPage() {
+  const params = useParams();
+  const router = useRouter();
+  const [job, setJob] = useState<Job | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (params?.id) {

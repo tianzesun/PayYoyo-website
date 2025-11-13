@@ -25,13 +25,6 @@ const MESSAGES = {
   alertMessage: 'Coming soon! Subscribe to our newsletter for demo updates.',
 } as const;
 
-// Play icon component for reusability and better organization
-const PlayIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M8 5v14l11-7z" />
-  </svg>
-);
-
 interface VideoDemoProps {
   onClose: () => void;
 }

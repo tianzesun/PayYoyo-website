@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
@@ -51,9 +52,11 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Our Story"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-xl"
               />
             </motion.div>
@@ -129,9 +132,11 @@ export default function AboutPage() {
                   className="bg-white rounded-xl p-8 shadow-lg"
                 >
                   <div className="flex items-start space-x-4">
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
+                      width={80}
+                      height={80}
                       className="w-20 h-20 rounded-full object-cover flex-shrink-0"
                     />
                     <div className="flex-1">
@@ -219,9 +224,11 @@ export default function AboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.05 }}
                   className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
                   />
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>

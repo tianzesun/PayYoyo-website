@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Modal } from '@/components/ui/modal';
 import { SignupForm } from '@/components/ui/signup-form';
 import { VideoDemo } from '@/components/ui/video-demo';
-import { SavingsCalculator } from '@/components/ui/savings-calculator';
 
 export function Hero() {
   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -314,9 +314,11 @@ export function Hero() {
                             <p className="text-yellow-100 text-xs">$25.50 balance </p>
                           </div>
                           <div className="flex items-center justify-center">
-                            <img
+                            <Image
                               src="/Starbucks.svg.png"
                               alt="Starbucks"
+                              width={40}
+                              height={20}
                               className="h-5 object-contain"
                             />
                           </div>
@@ -330,9 +332,11 @@ export function Hero() {
                             <p className="text-gray-800 text-xs">****4532 • Exp 08/26</p>
                           </div>
                           <div className="flex items-center justify-center">
-                            <img
+                            <Image
                               src="/Visa.svg.png"
                               alt="Visa"
+                              width={40}
+                              height={20}
                               className="h-5 object-contain"
                             />
                           </div>
@@ -346,9 +350,11 @@ export function Hero() {
                             <p className="text-gray-300 text-xs">****9876 • Exp 12/28</p>
                           </div>
                           <div className="flex items-center justify-center">
-                            <img
+                            <Image
                               src="/Mastercard.svg.png"
                               alt="Mastercard"
+                              width={40}
+                              height={20}
                               className="h-5 object-contain"
                             />
                           </div>
