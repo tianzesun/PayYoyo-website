@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function TeamPreview() {
@@ -51,9 +52,11 @@ export function TeamPreview() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow"
               >
-                <img
+                <Image
                   src={leader.image}
                   alt={leader.name}
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{leader.name}</h3>
@@ -78,7 +81,7 @@ export function TeamPreview() {
                 { stat: '12', label: 'Team Members' },
                 { stat: 'PhD', label: 'AI & Fintech Expertise' },
                 { stat: '% Fortune 500', label: 'Experience' },
-              ].map((item, index) => (
+              ].map((item) => (
                 <div key={item.label}>
                   <p className="text-3xl font-bold text-blue-600 mb-1">{item.stat}</p>
                   <p className="text-sm text-gray-600">{item.label}</p>

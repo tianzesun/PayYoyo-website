@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Button } from './ui/button';
 import { Logo } from './ui/logo';
 
 export function Navbar() {
@@ -35,14 +34,14 @@ export function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg md:shadow-sm' : 'bg-transparent'
+        isScrolled ? 'glass-light shadow-2xl shadow-purple-500/10' : 'bg-slate-900/50 glass'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex">
@@ -52,7 +51,7 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-2">
               {[
                 { name: 'About', href: '/about' },
                 { name: 'Solution', href: '#solution' },
@@ -63,23 +62,20 @@ export function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href.startsWith('#') ? `/${item.href}` : item.href}
-                  className="relative text-gray-700 hover:text-[#1E40AF] px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-out overflow-hidden group"
+                  className="relative text-white/80 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ease-out group"
                 >
                   <motion.span
                     className="relative z-10"
                     whileHover={{
                       scale: 1.05,
-                      y: -2,
                     }}
-                    whileTap={{ scale: 0.98 }}
+                    whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2 }}
                   >
                     {item.name}
                   </motion.span>
-                  {/* Animated underline */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] transition-all duration-300 group-hover:w-full"></span>
-                  {/* Background hover effect */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#F3F4F6] to-[#E5E7EB] opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-md"></span>
+                  {/* Glow effect on hover */}
+                  <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></span>
                 </Link>
               ))}
             </div>
@@ -87,16 +83,16 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button size="sm" className="bg-[#1E40AF] hover:bg-[#1D4ED8] text-white px-6 py-2 text-sm">
+            <button className="relative px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-white font-semibold text-sm shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
               Get Early Access
-            </Button>
+            </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-[#1E40AF] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 p-2 rounded-md"
+              className="text-white/80 hover:text-white focus:outline-none p-2 rounded-lg glass hover:bg-white/10 transition-all"
             >
               <span className="sr-only">{isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}</span>
               <motion.svg
@@ -129,10 +125,10 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+            transition={{ duration: 0.3, ease: 'easeInOut'}}
+            className="md:hidden glass border-t border-white/10"
           >
-            <div className="px-4 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="px-4 py-6 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
               {[
                 { name: 'About', href: '/about' },
                 { name: 'Solution', href: '#solution' },
@@ -148,7 +144,7 @@ export function Navbar() {
                 >
                   <Link
                     href={item.href.startsWith('#') ? `/${item.href}` : item.href}
-                    className="block py-3 text-gray-700 hover:text-[#1E40AF] hover:bg-blue-50 rounded-lg px-3 transition-all duration-200 text-base font-medium"
+                    className="block py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200 text-base font-medium"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -161,14 +157,14 @@ export function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.3 }}
-                className="pt-4 border-t border-gray-200"
+                className="pt-4 border-t border-white/10"
               >
-                <Button
-                  className="w-full bg-[#1E40AF] hover:bg-[#1D4ED8] text-white py-3 text-base font-semibold"
+                <button
+                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-full text-base font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Early Access
-                </Button>
+                </button>
               </motion.div>
             </div>
           </motion.div>
